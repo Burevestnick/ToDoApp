@@ -99,6 +99,12 @@ todoControl.addEventListener('submit', function(event) {
   }
 })
 
-getLocal()
+
+if (localStorage.getItem("toDoData") === null) {
+  console.log("!");
+} else {
+  getLocal()
+}
+
 
 
