@@ -6,6 +6,13 @@ let todoCompleted = document.querySelector(".todo-completed")
 let toDoData = []
 let toDoDataFiltered = []
 
+if (localStorage.getItem("toDoData") === null) {
+  console.log("!");
+} else {
+  getLocal()
+}
+
+
 
 const render = function() {
   todoList.innerHTML = ''
@@ -100,11 +107,6 @@ todoControl.addEventListener('submit', function(event) {
 })
 
 
-if (localStorage.getItem("toDoData") === null) {
-  console.log("!");
-} else {
-  getLocal()
-}
 
 
 
