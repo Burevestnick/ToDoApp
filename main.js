@@ -6,13 +6,6 @@ let todoCompleted = document.querySelector(".todo-completed")
 let toDoData = []
 let toDoDataFiltered = []
 
-if (localStorage.getItem("toDoData") === null) {
-  console.log("!");
-} else {
-  getLocal()
-}
-
-
 
 const render = function() {
   todoList.innerHTML = ''
@@ -68,19 +61,19 @@ const render = function() {
 }
 
 
-let pushLocal = function() {
+const pushLocal = function() {
   localStorage.setItem("toDoData", JSON.stringify(toDoData))
   localStorage.setItem("complete", todoList)
   localStorage.setItem("in progress", todoCompleted)
   render()
 }
-let getLocal = function() {
+const getLocal = function() {
   toDoData = JSON.parse(localStorage.getItem("toDoData"))
   render()
 }
 
 
-let dataFilter = function() {
+const dataFilter = function() {
   toDoDataFiltered = toDoData.filter(function(value) {
     return value != '';
   })
@@ -105,6 +98,12 @@ todoControl.addEventListener('submit', function(event) {
     pushLocal()
   }
 })
+
+if (localStorage.getItem("toDoData") === null) {
+  console.log("!");
+} else {
+  getLocal()
+}
 
 
 
